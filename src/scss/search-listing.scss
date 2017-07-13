@@ -1,0 +1,27 @@
+.search-list {
+  font-size: 1.4rem;
+
+  .search-result-container {
+    padding: 1.5rem 0;
+  }
+
+  .search-result-heading {
+    border-bottom: 1px solid $theme-grey;
+  }
+
+  .listing {
+    background: $theme-grey;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+  }
+
+  .search-list-container {
+    color: $white;
+  }
+
+  .taglist {
+    span {
+      margin-right: 1rem;
+    }
+  }
+}

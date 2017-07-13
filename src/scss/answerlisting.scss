@@ -1,0 +1,13 @@
+.answer-list {
+  padding: 1.5rem;
+  .listing {
+    border-bottom: 1px solid $theme-grey;
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    overflow:auto; //Doing this to accomodate for the html content being sent by json. Code tag in response is breaking the view
+  }
+
+  .highlight-answer {
+    background: $theme-green;
+  }
+}
