@@ -12,7 +12,8 @@ describe('Testing Actions', () => {
     let SEARCH_URL;
     let SEARCH;
     beforeEach(() => {
-      searchAction = search('react');
+      let searchTerm = 'react';
+      searchAction = search(searchTerm);
       SEARCH_URL = `${appconfig.SEARCH_URL.base_url}${searchTerm}${appconfig.SEARCH_URL.filter}`;
       SEARCH = axios.get(SEARCH_URL);
     });
@@ -31,8 +32,9 @@ describe('Testing Actions', () => {
     let SEARCH = axios.get(SEARCH_URL);
 
     beforeEach(() => {
-      fetchAnswersAction = fetchAnswers(45065675);
-      SEARCH_URL = `${appconfig.ANSWER_URL.base_url}${searchTerm}${appconfig.ANSWER_URL.filter}`;
+      let questionID = 45065675;
+      fetchAnswersAction = fetchAnswers(questionID);
+      SEARCH_URL = `${appconfig.ANSWER_URL.base_url}${questionID}${appconfig.ANSWER_URL.filter}`;
       SEARCH = axios.get(SEARCH_URL);
     });
 
