@@ -8,11 +8,11 @@ describe('Testing SearchBar Component', () => {
   });
 
   it('Has an Input Text', () => {
-    expect(component.find('input')).to.exist(homeComponent);
+    expect(component.find('input')).to.exist;
   });
 
   it('Has a Search Button', () => {
-    expect(component.find('button')).to.exist(homeComponent);
+    expect(component.find('button')).to.exist;
   });
 
   it('Elements have the correct classes', () => {

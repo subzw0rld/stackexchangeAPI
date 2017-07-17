@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { render } from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import {browserHistory} from 'react-router';
 
 import { search } from '../actions/index';
 
@@ -10,7 +11,7 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
-      searchTerm: null
+      searchTerm: ""
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +28,7 @@ class SearchBar extends Component {
 
   render() {
     return(
-      <div>
+      <div className = 'search-bar'>
         <input type = 'text' className='search-input' placeholder="Enter Search Phrase" value = {this.state.searchTerm} onChange = { this.handleChange } />
         <button className = 'search-btn' onClick = { this.onSearch } disabled={!this.state.searchTerm}>Search</button>
       </div>

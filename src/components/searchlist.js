@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
-import { Link } from "react-router";
 import { render } from 'react-dom';
-import { connect } from 'react-redux';
+import { Link } from "react-router";
 
-import appconfig from '../config/appconfig';
-import SearchBar from './searchbar';
+import { connect } from 'react-redux';
+import SearchModel from '../model/searchModel';
 
 import '../lib/date';
 
-class SearchListing extends Component {
+class SearchList extends Component {
 
   renderSearchResult(searchListObj) {
-    appconfig.searchResultCollection = searchListObj.data.items;
+    //Caching the data to localStorage to save additional http request to fetch the question body when the page routes to the answers route
+    SearchModel.cacheSearchResults(searchListObj.data.items);
     return searchListObj.data.items.map((item) => {
       const path = `/answers/${item.question_id}`;
       //The time in milliseconds returned by the json is returning a value of 18 Jan 1970
@@ -37,18 +37,13 @@ class SearchListing extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className = 'search-bar'>
-          <SearchBar></SearchBar>
-        </div>
-        <div className = 'search-list'>
-          <div className = 'search-result-container'>
-            <h1 className = 'search-result-heading'>Search Results</h1>
-            <ul className = 'search-list-container'>
-              {this.props.search.map(this.renderSearchResult)}
-            </ul>
-          </div>
+    return(
+      <div className = 'search-list'>
+        <div className = 'search-result-container'>
+          <h1 className = 'search-result-heading'>Search Results</h1>
+          <ul className = 'search-list-container'>
+            {this.props.search.map(this.renderSearchResult)}
+          </ul>
         </div>
       </div>
     )
@@ -59,4 +54,4 @@ function mapStateToProps({ search }) {
   return { search };
 }
 
-export default connect(mapStateToProps)(SearchListing);
+export default connect(mapStateToProps)(SearchList);

@@ -1,7 +1,7 @@
 import { renderComponent, expect } from '../test_helper';
-import App from '../../src/components/app';
+import Index from '../src/';
 
-describe('Testing App Component', () => {
+describe('Testing Index', () => {
   let component;
 
   beforeEach(() => {

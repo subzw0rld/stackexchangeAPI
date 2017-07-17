@@ -26,6 +26,10 @@ h2 {
   text-align: left;
 }
 
+p {
+  margin: 0;
+}
+
 input[type='text'] {
   border: none;
   border-bottom: 1px solid $theme-green;
